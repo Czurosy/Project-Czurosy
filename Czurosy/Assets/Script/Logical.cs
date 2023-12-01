@@ -6,7 +6,7 @@ using UnityEngine;
 public class Logical : MonoBehaviour
 {
     private float time = 0.0f;
-    public float interpolationPeriod = 0.1f;
+    public float interpolationPeriod = 1f;
     public GameObject enemy;
     void Start()
     {
@@ -21,9 +21,9 @@ public class Logical : MonoBehaviour
         if (time >= interpolationPeriod)
         {
             time = 0.0f;
-            float lowestPoint = transform.position.y - 100;
-            float highestPoint = transform.position.y + 100;
-            Instantiate(enemy, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z), transform.rotation);
+            float lowestPoint = transform.position.y - 30;
+            float highestPoint = transform.position.y + 30;
+            Instantiate(enemy, new Vector2(Random.Range(lowestPoint, highestPoint), Random.Range(lowestPoint, highestPoint)), transform.rotation);
         }
 
     }
