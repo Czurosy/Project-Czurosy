@@ -271,6 +271,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1467924069302284817, guid: e81bec373a3e9ac4ea2228c53f89030c, type: 3}
   firingPoint: {fileID: 1041195586}
   fireRate: 0.5
+  pistolAmmo: 20
   hp: 1
 --- !u!58 &1339178623
 CircleCollider2D:

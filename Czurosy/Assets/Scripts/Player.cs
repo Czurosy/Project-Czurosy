@@ -16,6 +16,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [Range(0.1f, 1f)]
     [SerializeField] private float fireRate = 0.5f;
+    [Range(0f, 30f)]
+    [SerializeField] private float pistolAmmo = 20;
     private float shootTimer;
     public float hp = 1;
     
@@ -27,10 +29,11 @@ public class playerMovement : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         transform.localRotation = Quaternion.Euler(0,0,angle);
-        if (Input.GetMouseButtonDown(0) && shootTimer <= 0 )
+        if (Input.GetMouseButtonDown(0) && shootTimer <= 0 && pistolAmmo > 0)
         {
             Shoot();
             shootTimer = fireRate;
+            pistolAmmo -= 1;
         }
         else
         {
