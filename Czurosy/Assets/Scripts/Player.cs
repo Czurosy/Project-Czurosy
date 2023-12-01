@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -49,5 +50,14 @@ public class playerMovement : MonoBehaviour
     private void Shoot() {
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "ammoBox")
+        {
+            pistolAmmo +=10;
+            Destroy(collision.gameObject, 0);
+            Console.Write("kolizja");
+        }
     }
 }
