@@ -1114,6 +1114,7 @@ GameObject:
   - component: {fileID: 1339178623}
   - component: {fileID: 1339178622}
   - component: {fileID: 1339178621}
+  - component: {fileID: 1339178626}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1270,6 +1271,21 @@ Transform:
   - {fileID: 1041195586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339178626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339178620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286de871bdab4934b8b1ebd49804e0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  czasFali: 180
+  timer: 0
+  godzina: 0
 --- !u!1 &1930252709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1493,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2536130291742805251, guid: 8e7a7a4aa1129c04fab85dfe0d4fed0e, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536130291742805251, guid: 8e7a7a4aa1129c04fab85dfe0d4fed0e, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3361745549161314814, guid: 8e7a7a4aa1129c04fab85dfe0d4fed0e, type: 3}
       propertyPath: m_Name
       value: ammoBox
