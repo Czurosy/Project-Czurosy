@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Logical : MonoBehaviour
 {
-    private float time = 0.0f;
-    public float interpolationPeriod = 1f;
-    public GameObject enemy;
     public Transform player;
     void Start()
     {
