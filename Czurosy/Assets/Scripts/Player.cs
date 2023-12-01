@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     Vector2 moveForce;
     Vector2 PlayerInput;

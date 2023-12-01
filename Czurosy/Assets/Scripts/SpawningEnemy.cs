@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class Logical : MonoBehaviour
+public class SpawningEnemy : MonoBehaviour
 {
     public Transform player;
+    private Rigidbody2D rb;
+    public float speed;
+    private float distance;
     void Start()
     {
-
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
 
-    void Update() { 
-        Vector3 direction = player.position - transform.position;
-    
+    void Update()
+    {
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        if (distance < 20)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+           // transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        }
+
     }
 }
 
