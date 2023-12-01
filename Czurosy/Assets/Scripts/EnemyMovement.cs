@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject player;
+    //public GameObject player;
     public float speed;
     private float distance;
+    private GameObject player = GameObject.Find("Player");
 
     // Use this for initialization
     void Start()
