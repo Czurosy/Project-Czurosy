@@ -10,10 +10,10 @@ public class IfTouchZombie : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("sdsds");
         if (collision.gameObject.tag == "Zombie")
         {
-            Debug.Log("Ep");
+            isAlive = false;
+            Debug.Log("Koniec");
         }
     }
 }

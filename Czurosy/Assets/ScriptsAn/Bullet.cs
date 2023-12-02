@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Logical logic;
     [Range(1, 10)]
     [SerializeField] private float speed = 10f;
     [Range(1, 10)]
@@ -12,6 +13,8 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     void Start()
     {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logical>();
+
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifeTime);
     }

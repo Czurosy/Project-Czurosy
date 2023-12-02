@@ -6,10 +6,12 @@ using UnityEngine;
 public class Logical : MonoBehaviour
 {
     public GameObject enemy;
+    public int countKill;
     public int fala;
     public int[] numberOfZombie;
     void Start()
     {
+        countKill = 0;
         int[] numberOfZombie = { 6, 10, 16, 20, 30, 100 };
         fala = 0;
 
@@ -22,10 +24,8 @@ public class Logical : MonoBehaviour
             }
         }
     }
-
-
-    void Update()
+    public void zombieIsShot()
     {
-
+        countKill++;
     }
 }
