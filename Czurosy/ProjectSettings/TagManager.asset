@@ -8,6 +8,8 @@ TagManager:
   - ammoBox
   - player
   - bullet
+  - Undefined
+  - Zombie
   layers:
   - Default
   - TransparentFX

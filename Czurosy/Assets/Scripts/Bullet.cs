@@ -27,10 +27,11 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Kolizja");
-        if(collision.gameObject.tag == "Niszczenie"){
-            Destroy(gameObject,0);
-            Destroy(collision.gameObject,0); 
+        Console.Write("Kolizja");
+        if (collision.gameObject.tag == "Zombie")
+        {
+            Destroy(gameObject, 0);
+            Destroy(collision.gameObject, 0);
         }
     }
 }

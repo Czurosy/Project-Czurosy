@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15.1
   lifeTime: 3
-  rigidBody: {fileID: 0}
+  rigidBody: {fileID: 175678955559804183}
 --- !u!61 &9080812370401340185
 BoxCollider2D:
   m_ObjectHideFlags: 0

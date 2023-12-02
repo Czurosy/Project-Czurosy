@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class playerMovement : MonoBehaviour
     private float horizontal;
     private float vertical; 
      public Rigidbody2D rb = new Rigidbody2D();
+    public TMP_Text text;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
     [Range(0.1f, 1f)]
@@ -22,6 +24,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float pistolAmmo = 20;
     [Range(0f, 10f)]
     [SerializeField] private float shootgunAmmo = 5;
+    private float maxShotgunAmmo = 10;
+    private float maxPistolAmmo = 30;
     public SpriteRenderer renderer;
     private float pistolshootTimer;
     private float shootgunShootTimer;
@@ -32,6 +36,25 @@ public class playerMovement : MonoBehaviour
     
     void Update()
     {
+        
+
+        if (selectedWeapon == 2 && shootgunAmmo == 0)
+        {
+            text.color = Color.red;
+            text.SetText(shootgunAmmo + "/" + maxShotgunAmmo);
+        }else if(selectedWeapon == 2){
+            text.color = Color.black;
+            text.SetText(shootgunAmmo + "/" + maxShotgunAmmo);
+        }
+        else if( selectedWeapon == 1 && pistolAmmo == 0)
+        {
+            text.color= Color.red;
+            text.SetText(pistolAmmo + "/" + maxPistolAmmo);
+        }else if( selectedWeapon == 1)
+        {
+            text.color = Color.black;
+            text.SetText(pistolAmmo + "/" + maxPistolAmmo);
+        }
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -56,6 +79,7 @@ public class playerMovement : MonoBehaviour
                     selectedWeapon = 2;
                     break;
                 case 2:
+                    
                     renderer.sprite = pistolet;
                     selectedWeapon = 1;
                     break;
@@ -65,7 +89,7 @@ public class playerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
+        rb.velocity = new Vector3(horizontal,vertical, 0).normalized * runningSpeed;
     }
 
     
@@ -100,6 +124,7 @@ public class playerMovement : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && pistolshootTimer <= 0 && pistolAmmo > 0)
                 {
                     pistolShoot();
+                    
                     pistolshootTimer = pistolFireRate;
                     pistolAmmo -= 1;
                 }
@@ -108,6 +133,7 @@ public class playerMovement : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && shootgunShootTimer <= 0 && shootgunAmmo > 0)
                 {
                     shootgunShoot();
+                    
                     shootgunShootTimer = shootgunFireRate;
                     shootgunAmmo -= 1;
                 }
