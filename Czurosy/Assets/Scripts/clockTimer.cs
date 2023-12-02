@@ -20,6 +20,6 @@ public class clockTimer : MonoBehaviour
     void Update()
     {
         czasFali -= 1 * Time.deltaTime;
-        Console.Write(czasFali);
+     
     }
 }

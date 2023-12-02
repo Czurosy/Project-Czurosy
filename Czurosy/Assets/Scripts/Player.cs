@@ -16,11 +16,17 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
     [Range(0.1f, 1f)]
-    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private float pistolFireRate = 0.5f;
+    [Range(0.1f, 1f)]
+    [SerializeField] private float shootgunFireRate = 1f;
     [Range(0f, 30f)]
     [SerializeField] private float pistolAmmo = 20;
-    private float shootTimer;
+    [Range(0f, 10f)]
+    [SerializeField] private float shootgunAmmo = 5;
+    private float pistolshootTimer;
+    private float shootgunShootTimer;
     public float hp = 1;
+    public float selectedWeapon = 2;
     
     
     void Update()
@@ -30,16 +36,29 @@ public class playerMovement : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         transform.localRotation = Quaternion.Euler(0,0,angle);
-        if (Input.GetMouseButtonDown(0) && shootTimer <= 0 && pistolAmmo > 0)
+        if(pistolshootTimer > 0)
         {
-            Shoot();
-            shootTimer = fireRate;
-            pistolAmmo -= 1;
+            pistolshootTimer -= Time.deltaTime; 
         }
-        else
+        if(shootgunShootTimer > 0)
         {
-            shootTimer -= Time.deltaTime;
+            shootgunShootTimer -= Time.deltaTime;  
         }
+        ShootingControl();
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            switch(selectedWeapon)
+            {
+                case 1:
+                    selectedWeapon = 2;
+                    break;
+                case 2:
+                    selectedWeapon = 1;
+                    break;
+            }
+        }
+        
     }
 
     private void FixedUpdate()
@@ -47,17 +66,55 @@ public class playerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
     }
 
-    private void Shoot() {
+    
+
+    private void pistolShoot() {
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
 
     }
+    private void shootgunShoot()
+    {
+        Debug.Log("NNie dziala");
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation * Quaternion.Euler(new Vector3(0,0,-7)));
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation * Quaternion.Euler(new Vector3(0,0,7)));
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "ammoBox")
         {
             pistolAmmo +=10;
+            shootgunAmmo += 5;
             Destroy(collision.gameObject, 0);
             Console.Write("kolizja");
         }
     }
+    private void ShootingControl()
+    {
+        switch (selectedWeapon)
+        {
+            case 1:
+                if (Input.GetMouseButtonDown(0) && pistolshootTimer <= 0 && pistolAmmo > 0)
+                {
+                    pistolShoot();
+                    pistolshootTimer = pistolFireRate;
+                    pistolAmmo -= 1;
+                }
+                break;
+            case 2:
+                if (Input.GetMouseButtonDown(0) && shootgunShootTimer <= 0 && shootgunAmmo > 0)
+                {
+                    shootgunShoot();
+                    shootgunShootTimer = shootgunFireRate;
+                    shootgunAmmo -= 1;
+                    Debug.Log(" dziala");
+                }
+                break;
+
+        }
+    }
 }
+
+
