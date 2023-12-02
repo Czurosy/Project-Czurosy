@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IfTouchZombie : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class IfTouchZombie : MonoBehaviour
         {
             isAlive = false;
             Debug.Log("Koniec");
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Logical : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject player;
     public int countKill;
     public int fala;
     public int[] numberOfZombie;
