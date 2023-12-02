@@ -23,6 +23,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float pistolAmmo = 20;
     [Range(0f, 10f)]
     [SerializeField] private float shootgunAmmo = 5;
+    public SpriteRenderer renderer;
     public GameObject attackArea;
     private float pistolshootTimer;
     private float shootgunShootTimer;
@@ -33,6 +34,8 @@ public class playerMovement : MonoBehaviour
     private bool attacking = false;
     public float meleeAttackCooldown = 0;
     private float meleAttackTimer = 3;
+    public Sprite pistolet;
+    public Sprite shotgun;
     
     
     void Update()
@@ -57,9 +60,11 @@ public class playerMovement : MonoBehaviour
             switch(selectedWeapon)
             {
                 case 1:
+                    renderer.sprite = shotgun;
                     selectedWeapon = 2;
                     break;
                 case 2:
+                    renderer.sprite = pistolet;
                     selectedWeapon = 1;
                     break;
             }
