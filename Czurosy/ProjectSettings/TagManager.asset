@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Zombie
   - Logic
+  - OriginalEnemy
   layers:
   - Default
   - TransparentFX

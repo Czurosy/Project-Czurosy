@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Logical logic;
+    private Logical logic;
     [Range(1, 10)]
     [SerializeField] private float speed = 10f;
     [Range(1, 10)]
