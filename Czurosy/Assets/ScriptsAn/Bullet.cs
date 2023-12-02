@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     [Range(1, 10)]
     [SerializeField] private float lifeTime = 3f;
     public Rigidbody2D rb;
-    public ParticleSystem particle;
+    [SerializeField] private ParticleSystem hitParticlePrefab;
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logical>();
@@ -33,13 +33,14 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Console.Write("Kolizja");
-        if(collision.gameObject.tag == "Zombie"){
-            particle.Play();
-            Destroy(gameObject,0);
+        if(collision.gameObject.tag == "Zombie")
+        {
+            Instantiate(hitParticlePrefab, transform.position, Quaternion.identity);
             Destroy(collision.gameObject,0);
             logic.zombieIsShot();
+            Destroy(gameObject, 0);
         }
-        if(collision.gameObject.tag == "wall")
+        if (collision.gameObject.tag == "wall")
         {
             Destroy(gameObject,0);
         }

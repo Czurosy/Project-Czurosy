@@ -8,19 +8,19 @@ public class SpawningEnemy : MonoBehaviour
 {
     public float time;
     public Logical logic;
-    public GameObject player;
     public GameObject enemy;
-    private Rigidbody2D rb;
     public float speed;
-    private float interpolationPeriod = 10.0f;
 
+    private float interpolationPeriod = 10.0f;
+    private GameObject player;
+    private Rigidbody2D rb;
 
     private float distance;
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logical>();
         rb = this.GetComponent<Rigidbody2D>();
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
@@ -37,7 +37,6 @@ public class SpawningEnemy : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
-
 }
 
 

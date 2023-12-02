@@ -9,10 +9,12 @@ public class Logical : MonoBehaviour
 {
     public float interpolationPeriod;
     public GameObject enemy;
+    public GameObject ammo;
     public GameObject player;
+    private int numberOfAmmo = 3;
     public int countKill = 0;
     public int fala = 0;
-    int numberOfZombie = 10;
+    int numberOfZombie = 30;
     private float offset = 3.0f;
     private float posX;
     private float posY;
@@ -85,6 +87,14 @@ public class Logical : MonoBehaviour
 
                 //} while (false/*(posX - player.transform.position.x < offset || player.transform.position.x - posX < offset) && (posY - player.transform.position.y < offset || player.transform.position.y - posY < offset)*/);
                 Instantiate(enemy, new Vector2(posX, posY), transform.rotation);
+            }
+            if(numberOfAmmo != 0) { 
+                for(int i = 0;i < numberOfAmmo;i++) { 
+                    posX = Random.Range(player.transform.position.x - offset, player.transform.position.x + offset);
+                    posY = Random.Range(player.transform.position.y - offset, player.transform.position.y + offset);
+                    Instantiate(ammo, new Vector2(posX, posY), transform.rotation);
+                }
+                numberOfAmmo--;
             }
             time = 0.0f;
         }

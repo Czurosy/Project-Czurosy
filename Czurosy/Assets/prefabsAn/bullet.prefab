@@ -164,3 +164,4 @@ MonoBehaviour:
   speed: 28.6
   lifeTime: 3
   rb: {fileID: 175678955559804183}
+  hitParticlePrefab: {fileID: 3965563762560976173, guid: a80b18eb41c39304aaf412103be0640f, type: 3}

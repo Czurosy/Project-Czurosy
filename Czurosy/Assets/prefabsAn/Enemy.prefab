@@ -99,10 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e514d08cafed940b65a0d1090ee3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0
   logic: {fileID: 0}
-  player: {fileID: 0}
   enemy: {fileID: 2488071633391634289}
   speed: 0.78
+  particleSystem: {fileID: 0}
 --- !u!50 &5287625595933565825
 Rigidbody2D:
   serializedVersion: 4
