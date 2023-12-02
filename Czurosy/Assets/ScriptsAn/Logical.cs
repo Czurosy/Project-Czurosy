@@ -29,7 +29,7 @@ public class Logical : MonoBehaviour
                 {
                     posX = Random.Range(highestPoint[0], highestPoint[1]);
                     posY = Random.Range(lowestPoint[0], lowestPoint[1]);
-                } while ((posX - player.transform.position.x < offset || player.transform.position.x - posX < offset) && (posY - player.transform.position.y < offset || player.transform.position.y - posY < offset));
+                } while (true/*(posX - player.transform.position.x < offset || player.transform.position.x - posX < offset) && (posY - player.transform.position.y < offset || player.transform.position.y - posY < offset)*/);
                 Instantiate(enemy, new Vector2(posX, posY), transform.rotation);
             }
         }
