@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 1215573818}
   m_Layer: 0
   m_Name: Logical
-  m_TagString: Untagged
+  m_TagString: Logic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,6 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1480901149}
+  countKill: 0
   fala: 0
   numberOfZombie: 
 --- !u!1 &1480901149
@@ -570,7 +571,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

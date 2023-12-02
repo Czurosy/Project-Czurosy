@@ -34,7 +34,8 @@ public class Bullet : MonoBehaviour
         Console.Write("Kolizja");
         if(collision.gameObject.tag == "Zombie"){
             Destroy(gameObject,0);
-            Destroy(collision.gameObject,0); 
+            Destroy(collision.gameObject,0);
+            logic.zombieIsShot();
         }
     }
 }

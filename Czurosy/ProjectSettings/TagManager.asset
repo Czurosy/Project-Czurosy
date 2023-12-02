@@ -5,16 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-<<<<<<< HEAD
   - Zombie
-=======
-  - ammoBox
->>>>>>> AntonioBranch
+  - Logic
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - background
+  - 
   - Water
   - UI
   - 

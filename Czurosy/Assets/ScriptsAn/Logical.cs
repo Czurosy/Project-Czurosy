@@ -27,5 +27,6 @@ public class Logical : MonoBehaviour
     public void zombieIsShot()
     {
         countKill++;
+        Debug.Log(countKill);
     }
 }
