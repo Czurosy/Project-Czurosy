@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
        rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
-        Debug.Log(horizontal);
+        //Debug.Log(horizontal);
         if (playerBounder.transform.position.x < -9)
         {
             playerBounder.transform.position = new Vector2(-9, playerBounder.transform.position.y);
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         {
             pistolAmmo +=10;
             Destroy(collision.gameObject, 0);
-            Console.Write("kolizja");
+           // Console.Write("kolizja");
         }
     }
 }
