@@ -1042,7 +1042,7 @@ Transform:
   m_GameObject: {fileID: 1041195585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.191, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0.234, y: 0.055, z: 0}
   m_LocalScale: {x: 0.28, y: 0.18, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   timer: 0
   meleeAttackCooldown: 0
   pistolet: {fileID: -1009413182, guid: 7c80621dcf1360a4ebb4cce8fc206f4d, type: 3}
-  shotgun: {fileID: 1357802695, guid: 7c80621dcf1360a4ebb4cce8fc206f4d, type: 3}
+  shotgun: {fileID: -186198116, guid: 7c80621dcf1360a4ebb4cce8fc206f4d, type: 3}
 --- !u!212 &1339178624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1165,7 +1165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1357802695, guid: 7c80621dcf1360a4ebb4cce8fc206f4d, type: 3}
+  m_Sprite: {fileID: -186198116, guid: 7c80621dcf1360a4ebb4cce8fc206f4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
