@@ -23,10 +23,16 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float pistolAmmo = 20;
     [Range(0f, 10f)]
     [SerializeField] private float shootgunAmmo = 5;
+    public GameObject attackArea;
     private float pistolshootTimer;
     private float shootgunShootTimer;
     public float hp = 1;
     public float selectedWeapon = 2;
+    public float timeToAttack = 0.25f;
+    public float timer = 0f;
+    private bool attacking = false;
+    public float meleeAttackCooldown = 0;
+    private float meleAttackTimer = 3;
     
     
     void Update()
@@ -58,7 +64,30 @@ public class playerMovement : MonoBehaviour
                     break;
             }
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if( meleAttackTimer >= meleeAttackCooldown)
+            {
+                meleeAttack();
+                meleAttackTimer = 0;
+            }
+            else
+            {
+                meleAttackTimer += Time.deltaTime;
+            }
+           
+        }
+        if (attacking)
+        {
+            timer += Time.deltaTime;
+            if(timer >= timeToAttack)
+            {
+                timer = 0;
+                attacking = false;
+                attackArea.SetActive(attacking);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -109,11 +138,15 @@ public class playerMovement : MonoBehaviour
                     shootgunShoot();
                     shootgunShootTimer = shootgunFireRate;
                     shootgunAmmo -= 1;
-                    Debug.Log(" dziala");
                 }
                 break;
 
         }
+    }
+    private void meleeAttack()
+    {   
+        attacking = true;
+        attackArea.SetActive(attacking);
     }
 }
 
