@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Logical : MonoBehaviour
 {
+    public float interpolationPeriod;
     public GameObject enemy;
     public GameObject player;
     public int countKill = 0;
@@ -13,32 +16,36 @@ public class Logical : MonoBehaviour
     private float offset = 3.0f;
     private float posX;
     private float posY;
-    float[] highestPoint = { -9.0f, 10.0f };
-    float[] lowestPoint = { -15.0f, 3.0f };
+    public GameObject spawnArea;  
+    private float time = 0.0f;
+    public float offsetMiddle = 15f;
+    public GameObject middleObject;
+    private watch watchObject;
+    private float startingHour;
     void Start()
     {
- 
-        if (fala != 5)
-        {
-            countKill = 0;
+        watchObject = GameObject.FindGameObjectWithTag("watch").GetComponent<watch>();
+        startingHour = watchObject.hour;
+        countKill = 0;
             for (int i = 0; i < numberOfZombie; i++)
             {
-                posX = Random.Range(highestPoint[0], highestPoint[1]);
-                posY = Random.Range(lowestPoint[0], lowestPoint[1]);
+                posX = Random.Range(middleObject.transform.position.x - offsetMiddle, middleObject.transform.position.x  + offsetMiddle);
+                posY = Random.Range(middleObject.transform.position.y - offsetMiddle, middleObject.transform.position.y + offsetMiddle);
+            Debug.Log(posX + ", " + posY);
                 while ((player.transform.position.x + offset > posX && player.transform.position.x - offset < posX) && (player.transform.position.y + offset > posY && player.transform.position.y - offset < posY))
-                {
-                    posX = Random.Range(highestPoint[0], highestPoint[1]);
-                    posY = Random.Range(lowestPoint[0], lowestPoint[1]);
-                }
+            {
+                posX = Random.Range(middleObject.transform.position.x - offsetMiddle, middleObject.transform.position.x + offsetMiddle);
+                posY = Random.Range(middleObject.transform.position.y - offsetMiddle, middleObject.transform.position.y + offsetMiddle);
+            }
                 // if (player.transform.position.x + offset > posX && player.transform.position.x - offset < posX)
 
                 //} while (false/*(posX - player.transform.position.x < offset || player.transform.position.x - posX < offset) && (posY - player.transform.position.y < offset || player.transform.position.y - posY < offset)*/);
                 Instantiate(enemy, new Vector2(posX, posY), transform.rotation);
             }
-        }
+        
 
         Debug.Log(enemy);
-        /*(if((enemy.transform.position.x > highestPoint[1] || enemy.transform.position.x < highestPoint[0]) && (enemy.transform.position.y > lowestPoint[1] || enemy.transform.position.y < lowestPoint[0]))
+        /*(if((enemy.transform.position.x > positionX[1] || enemy.transform.position.x < positionX[0]) && (enemy.transform.position.y > positionY[1] || enemy.transform.position.y < positionY[0]))
         {
             Debug.Log("NIC");
             Object.Destroy(enemy);
@@ -46,16 +53,45 @@ public class Logical : MonoBehaviour
         }*/
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(countKill == numberOfZombie + 1)
+        if (watchObject.hour > startingHour)
+        {
+            SceneManager.LoadSceneAsync("0");
+
+        }
+        if (countKill == numberOfZombie + 1)
         {
             Debug.Log("Wygrana");
+        }
+        
+        time += Time.deltaTime;
+
+        if (time >= interpolationPeriod)
+        {
+            
+            for (int i = 0; i < numberOfZombie; i++)
+            {
+               
+                posX = Random.Range(middleObject.transform.position.x - offsetMiddle, middleObject.transform.position.x + offsetMiddle);
+                posY = Random.Range(middleObject.transform.position.y - offsetMiddle, middleObject.transform.position.y + offsetMiddle);
+                Debug.Log(posX + ", " + posY);
+                while ((player.transform.position.x + offset > posX && player.transform.position.x - offset < posX) && (player.transform.position.y + offset > posY && player.transform.position.y - offset < posY))
+                {
+                    posX = Random.Range(middleObject.transform.position.x - offsetMiddle, middleObject.transform.position.x + offsetMiddle);
+                    posY = Random.Range(middleObject.transform.position.y - offsetMiddle, middleObject.transform.position.y + offsetMiddle);
+                }
+                // if (player.transform.position.x + offset > posX && player.transform.position.x - offset < posX)
+
+                //} while (false/*(posX - player.transform.position.x < offset || player.transform.position.x - posX < offset) && (posY - player.transform.position.y < offset || player.transform.position.y - posY < offset)*/);
+                Instantiate(enemy, new Vector2(posX, posY), transform.rotation);
+            }
+            time = 0.0f;
         }
     }
 
 
-
+    
     public void zombieIsShot()
     {
         countKill++;

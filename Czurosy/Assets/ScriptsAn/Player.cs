@@ -35,7 +35,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        if(pistolAmmo > maxPistolAmmo)
+        {
+            pistolAmmo = maxPistolAmmo;
+        }
+        if(shootgunAmmo > maxShotgunAmmo)
+        {
+            shootgunAmmo = maxShotgunAmmo;
+        }
 
         if (selectedWeapon == 2 && shootgunAmmo == 0)
         {
@@ -126,8 +133,16 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag == "Zombie")
+        {
+            Destroy(gameObject,0.5f);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "ammoBox")
         {
+
             pistolAmmo += 10;
             shootgunAmmo += 5;
             Destroy(collision.gameObject, 0);

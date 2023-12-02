@@ -114,9 +114,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 26
-        height: 28
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: ZombieSheet_1
       rect:
         serializedVersion: 2
-        x: 26
-        y: 0
-        width: 26
-        height: 28
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: ZombieSheet_2
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
-        width: 26
-        height: 28
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: ZombieSheet_3
       rect:
         serializedVersion: 2
-        x: 78
-        y: 0
-        width: 26
-        height: 28
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: ZombieSheet_4
       rect:
         serializedVersion: 2
-        x: 104
-        y: 0
-        width: 26
-        height: 28
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: ZombieSheet_5
       rect:
         serializedVersion: 2
-        x: 130
-        y: 0
-        width: 26
-        height: 28
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: ZombieSheet_6
       rect:
         serializedVersion: 2
-        x: 156
+        x: 0
         y: 0
-        width: 26
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: ZombieSheet_7
       rect:
         serializedVersion: 2
-        x: 182
+        x: 32
         y: 0
-        width: 26
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: ZombieSheet_8
       rect:
         serializedVersion: 2
-        x: 208
+        x: 64
         y: 0
-        width: 26
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

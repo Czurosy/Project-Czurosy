@@ -37,5 +37,9 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject,0);
             logic.zombieIsShot();
         }
+        if(collision.gameObject.tag == "wall")
+        {
+            Destroy(gameObject,0);
+        }
     }
 }

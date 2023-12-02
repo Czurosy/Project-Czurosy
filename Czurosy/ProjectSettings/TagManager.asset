@@ -8,14 +8,16 @@ TagManager:
   - Zombie
   - Logic
   - OriginalEnemy
+  - Bullet
+  - watch
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - player
   - Water
   - UI
-  - 
+  - bullet
   - 
   - 
   - 
