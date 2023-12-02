@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float pistolAmmo = 20;
     private float shootTimer;
     public float hp = 1;
+    private float offset;
     
     
     void Update()
@@ -45,10 +46,14 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
        rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
+        if (new Vector2(horizontal, vertical) == new Vector2(-10, rb.velocity.y)) {
+            Debug.Log("www");
+
+        }
     }
 
     private void Shoot() {
-        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Instantiate(bulletPrefab, firingPoint.position, (firingPoint.rotation));
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
