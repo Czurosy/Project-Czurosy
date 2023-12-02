@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
+       rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
     }
 
     private void Shoot() {
