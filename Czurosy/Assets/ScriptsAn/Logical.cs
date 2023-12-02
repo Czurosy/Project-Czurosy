@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Logical : MonoBehaviour
 {
-    private float time = 0.0f;
-    private float interpolationPeriod = 10.0f;
     public GameObject enemy;
     public int fala;
     public int[] numberOfZombie;
@@ -15,7 +13,6 @@ public class Logical : MonoBehaviour
         int[] numberOfZombie = { 6, 10, 16, 20, 30, 100 };
         fala = 0;
 
-        time += Time.deltaTime;
         if(fala != 5)
         {
             for (int i = 0; i < numberOfZombie[fala]; i++) {
