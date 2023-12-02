@@ -18,15 +18,15 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 targetPos = transform.position = target.position + cameraOffset;
+        Vector3 clampedPos = new Vector3(Mathf.Clamp(targetPos.x, Xmin, float.MaxValue), targetPos.y, targetPos.z);
+        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, clampedPos, ref velocity, cameraSpeed + Time.fixedDeltaTime);
+        transform.position = smoothPos;
+
     }
 
     private void FixedUpdate()
     {
-       Vector3 targetPos = transform.position = target.position + cameraOffset;
-        Vector3 clampedPos = new Vector3(Mathf.Clamp(targetPos.x, Xmin, float.MaxValue), targetPos.y, targetPos.z);
-        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, clampedPos, ref velocity, cameraSpeed + Time.fixedDeltaTime);
-        transform.position = smoothPos;
 
     }
 }
