@@ -6,16 +6,20 @@ using UnityEngine;
 
 public class SpawningEnemy : MonoBehaviour
 {
+    public Logical logic;
     public GameObject player;
     public GameObject enemy;
     private Rigidbody2D rb;
     public float speed;
     private float time = 0.0f;
     private float interpolationPeriod = 10.0f;
+    float[] highestPoint = { -9.0f, 10.0f };
+    float[] lowestPoint = { -15.0f, 3.0f };
 
     private float distance;
     void Start()
     {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logical>();
         rb = this.GetComponent<Rigidbody2D>();
     }
 
@@ -27,12 +31,9 @@ public class SpawningEnemy : MonoBehaviour
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (distance < 20)
-        {
+
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-        }
-
 
     }
 }
