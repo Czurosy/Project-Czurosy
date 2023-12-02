@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [Range(1, 10)]
+    [Range(1, 20)]
     [SerializeField] private float speed = 10f;
     [Range(1, 10)]
     [SerializeField] private float lifeTime = 3f;
@@ -32,6 +32,10 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Niszczenie"){
             Destroy(gameObject,0);
             Destroy(collision.gameObject,0); 
+        }
+        if(collision.gameObject.tag == "Player")
+        {
+            
         }
     }
 }
