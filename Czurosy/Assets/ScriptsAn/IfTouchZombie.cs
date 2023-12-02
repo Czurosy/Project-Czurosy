@@ -7,18 +7,13 @@ public class IfTouchZombie : MonoBehaviour
 {
     private bool isAlive = true;
 
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("It didnd Worked");
-        if (hit.gameObject.tag == "Zombie" )
+        Debug.Log("sdsds");
+        if (collision.gameObject.tag == "Zombie")
         {
-            Debug.Log("It Worked");
-
-            isAlive = false;
+            Debug.Log("Ep");
         }
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Ep");
     }
 }
