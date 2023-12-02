@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    Vector2 moveForce;
-    Vector2 PlayerInput;
     public float runningSpeed;
     private Vector2 mousePos;
     private float horizontal;
@@ -25,16 +23,9 @@ public class playerMovement : MonoBehaviour
     [Range(0f, 10f)]
     [SerializeField] private float shootgunAmmo = 5;
     public SpriteRenderer renderer;
-    public GameObject attackArea;
     private float pistolshootTimer;
     private float shootgunShootTimer;
-    public float hp = 1;
     public float selectedWeapon = 2;
-    public float timeToAttack = 0.25f;
-    public float timer = 0f;
-    private bool attacking = false;
-    public float meleeAttackCooldown = 0;
-    private float meleAttackTimer = 3;
     public Sprite pistolet;
     public Sprite shotgun;
     
@@ -70,30 +61,6 @@ public class playerMovement : MonoBehaviour
                     break;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if( meleAttackTimer >= meleeAttackCooldown)
-            {
-                meleeAttack();
-                meleAttackTimer = 0;
-            }
-            else
-            {
-                meleAttackTimer += Time.deltaTime;
-            }
-           
-        }
-        if (attacking)
-        {
-            timer += Time.deltaTime;
-            if(timer >= timeToAttack)
-            {
-                timer = 0;
-                attacking = false;
-                attackArea.SetActive(attacking);
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -109,7 +76,6 @@ public class playerMovement : MonoBehaviour
     }
     private void shootgunShoot()
     {
-        Debug.Log("NNie dziala");
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation * Quaternion.Euler(new Vector3(0,0,-7)));
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation * Quaternion.Euler(new Vector3(0,0,7)));
@@ -148,11 +114,6 @@ public class playerMovement : MonoBehaviour
                 break;
 
         }
-    }
-    private void meleeAttack()
-    {   
-        attacking = true;
-        attackArea.SetActive(attacking);
     }
 }
 

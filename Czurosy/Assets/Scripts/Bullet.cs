@@ -9,10 +9,10 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [Range(1, 10)]
     [SerializeField] private float lifeTime = 3f;
-    public Rigidbody2D rb;
+    public Rigidbody2D rigidBody;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifeTime);
     }
 
@@ -23,19 +23,14 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.up * speed;
-        Console.Write("Kolizja");
+        rigidBody.velocity = transform.up * speed;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Console.Write("Kolizja");
+        Debug.Log("Kolizja");
         if(collision.gameObject.tag == "Niszczenie"){
             Destroy(gameObject,0);
             Destroy(collision.gameObject,0); 
-        }
-        if(collision.gameObject.tag == "Player")
-        {
-            
         }
     }
 }
