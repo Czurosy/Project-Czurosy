@@ -5,16 +5,22 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+<<<<<<< HEAD
   - ammoBox
   - player
   - bullet
   - Undefined
   - Zombie
+=======
+  - Zombie
+  - Logic
+  - OriginalEnemy
+>>>>>>> origin/Fala1Done
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - background
+  - 
   - Water
   - UI
   - gracz

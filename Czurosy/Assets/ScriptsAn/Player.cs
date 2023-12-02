@@ -6,9 +6,10 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float runningSpeed;
+    public GameObject playerBounder;
     private Vector2 mousePos;
     private float horizontal;
     private float vertical; 
@@ -22,6 +23,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float shootgunFireRate = 1f;
     [Range(0f, 30f)]
     [SerializeField] private float pistolAmmo = 20;
+<<<<<<< HEAD:Czurosy/Assets/Scripts/Player.cs
     [Range(0f, 10f)]
     [SerializeField] private float shootgunAmmo = 5;
     private float maxShotgunAmmo = 10;
@@ -32,6 +34,11 @@ public class playerMovement : MonoBehaviour
     public float selectedWeapon = 2;
     public Sprite pistolet;
     public Sprite shotgun;
+=======
+    private float shootTimer;
+    public float hp = 1;
+    private float offset;
+>>>>>>> origin/Fala1Done:Czurosy/Assets/ScriptsAn/Player.cs
     
     
     void Update()
@@ -89,6 +96,7 @@ public class playerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+<<<<<<< HEAD:Czurosy/Assets/Scripts/Player.cs
         rb.velocity = new Vector3(horizontal,vertical, 0).normalized * runningSpeed;
     }
 
@@ -96,6 +104,30 @@ public class playerMovement : MonoBehaviour
 
     private void pistolShoot() {
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+=======
+       rb.velocity = new Vector2(horizontal,vertical).normalized * runningSpeed;
+        //Debug.Log(horizontal);
+        if (playerBounder.transform.position.x < -9)
+        {
+            playerBounder.transform.position = new Vector2(-9, playerBounder.transform.position.y);
+        }
+        if (playerBounder.transform.position.x > 20)
+        {
+            playerBounder.transform.position = new Vector2(20, playerBounder.transform.position.y);
+        }
+        if (playerBounder.transform.position.y > 3)
+        {
+            playerBounder.transform.position = new Vector2(playerBounder.transform.position.x, 3);
+        }
+        if (playerBounder.transform.position.y < -25)
+        {
+            playerBounder.transform.position = new Vector2(playerBounder.transform.position.x, -25);
+        }
+    }
+
+    private void Shoot() {
+        Instantiate(bulletPrefab, firingPoint.position, (firingPoint.rotation));
+>>>>>>> origin/Fala1Done:Czurosy/Assets/ScriptsAn/Player.cs
 
     }
     private void shootgunShoot()
@@ -113,7 +145,7 @@ public class playerMovement : MonoBehaviour
             pistolAmmo +=10;
             shootgunAmmo += 5;
             Destroy(collision.gameObject, 0);
-            Console.Write("kolizja");
+           // Console.Write("kolizja");
         }
     }
     private void ShootingControl()
