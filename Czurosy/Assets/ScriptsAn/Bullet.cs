@@ -6,11 +6,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Logical logic;
-    [Range(1, 10)]
+    [Range(1, 40)]
     [SerializeField] private float speed = 10f;
     [Range(1, 10)]
     [SerializeField] private float lifeTime = 3f;
     public Rigidbody2D rb;
+    public ParticleSystem particle;
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logical>();
@@ -33,6 +34,7 @@ public class Bullet : MonoBehaviour
     {
         Console.Write("Kolizja");
         if(collision.gameObject.tag == "Zombie"){
+            particle.Play();
             Destroy(gameObject,0);
             Destroy(collision.gameObject,0);
             logic.zombieIsShot();

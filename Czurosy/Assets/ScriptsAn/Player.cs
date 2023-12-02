@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -135,7 +136,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Zombie")
         {
-            Destroy(gameObject,0.5f);
+            SceneManager.LoadScene(3);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

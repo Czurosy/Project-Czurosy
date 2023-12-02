@@ -57,7 +57,7 @@ public class Logical : MonoBehaviour
     {
         if (watchObject.hour > startingHour)
         {
-            SceneManager.LoadSceneAsync("0");
+            SceneManager.LoadScene(2);
 
         }
         if (countKill == numberOfZombie + 1)

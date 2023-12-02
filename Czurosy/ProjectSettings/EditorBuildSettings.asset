@@ -8,12 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 09d974ba8b26a9044a11dd71213df752
-  - enabled: 0
-    path: Assets/ScenesAn/Ania.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Mapka.unity
     guid: 97b7c13712386974ca670c189a358b4d
+  - enabled: 1
+    path: Assets/Scenes/houseMenu.unity
+    guid: 26b534f536cb9d8489296818ca2cd7df
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 4a3098e7970ff824a90ee0895425da2c
