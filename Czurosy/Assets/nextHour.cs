@@ -13,6 +13,6 @@ public class nextHour : MonoBehaviour
     }
     public void nextHourr()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }
