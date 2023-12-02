@@ -18,11 +18,12 @@ public class Logical : MonoBehaviour
     void Start()
     {
         countKill = 0;
-        int[] numberOfZombie = {26, 10, 16, 20, 30, 100 };
+        int[] numberOfZombie = {2, 3, 4, 5, 6, 0 };
         fala = 0;
 
         if (fala != 5)
         {
+            countKill = 0;
             for (int i = 0; i < numberOfZombie[fala]; i++)
             {
                 float[] highestPoint = { -9.0f, 10.0f };
@@ -49,9 +50,9 @@ public class Logical : MonoBehaviour
             countKill++;
         }*/
     }
+
     public void zombieIsShot()
     {
         countKill++;
-        Debug.Log(countKill);
     }
 }

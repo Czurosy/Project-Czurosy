@@ -14,7 +14,6 @@ public class IfTouchZombie : MonoBehaviour
         if (collision.gameObject.tag == "Zombie")
         {
             isAlive = false;
-            Debug.Log("Koniec");
             SceneManager.LoadSceneAsync(2);
         }
     }
